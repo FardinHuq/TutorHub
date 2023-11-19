@@ -1,0 +1,208 @@
+<div class="d-block bgLightBlue pb-4 pt-4">
+  <section class="container bg-white card card-body shadow shadow-sm">
+    <p class="font-weight-lighter text-center bg-light pb-2 h3">
+      <strong>Edit Tuition</strong>
+    </p>
+
+    <form
+      class="container"
+      method="POST"
+      action="/api/tuition/{{tuition.id}}/edit"
+    >
+      <fieldset class="fieldset">
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="salary">Salary</label>
+          <div class="col-md-12">
+            <input
+              type="number"
+              id="salary"
+              name="salary"
+              class="form-control"
+              value="{{tuition.salary}}"
+              required
+            />
+            <small class="text-secondary">
+              The salary will be shown to all tutors.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="area">Area</label>
+          <div class="col-md-12">
+            <input
+              type="text"
+              id="area"
+              name="area"
+              class="form-control"
+              value="{{tuition.area}}"
+              required
+            />
+            <small class="text-secondary">
+              The area will be shown to all tutors.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="subject">Subject</label>
+          <div class="col-md-12">
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-control"
+              value="{{tuition.subject}}"
+              required
+            />
+            <small class="text-secondary">
+              The subject will be shown to all tutors.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="class">Class</label>
+          <div class="col-md-12">
+            <input
+              type="text"
+              id="class"
+              name="class"
+              class="form-control"
+              value="{{tuition.class}}"
+              required
+            />
+            <small class="text-secondary">
+              The class will be shown to all tutors.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="col-md-12 control-label" for="gender">Prefered gender</label>
+            <div class="col-md-12">
+              <select
+                class="form-control"
+                name="gender"
+                id="gender"
+                value="{{tuition.gender}}"
+                aria-label="Prefered gender"
+              >
+
+                <option value="Any" selected>Any</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <small class="text-secondary">
+                Prefered gender.
+              </small>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label
+              class="col-md-12 control-label"
+              for="avaliability"
+            >Availiabilty of tuition</label>
+            <div class="col-md-12">
+              <select
+                class="form-control"
+                name="avaliability"
+                id="avaliability"
+                value="{{tuition.avaliability}}"
+                aria-label="Availiability"
+              >
+
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+              </select>
+              <small class="text-secondary">
+                Availiabilty
+              </small>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <hr />
+      <div class="form-group">
+        <div class="text-center">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            name="create-submit"
+            value="Edit Tuition"
+          />
+          <a
+            href="/dashboard"
+            class="btn btn-outline-danger px-3 ml-2"
+          >Cancel</a>
+        </div>
+      </div>
+    </form>
+    <p class="font-weight-lighter text-center bg-light pb-2 h3">
+      <strong>Requirements</strong>
+    </p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6"><div class="list-group">
+          {{#each requirements}}
+            <div class="list-group-item">
+              <div
+                class="d-flex justify-content-between align-items-center"
+              ><span>>>
+                  {{text}}</span>
+                <form
+                  method="POST"
+                  action="/api/requirement/{{id}}/delete"
+                  class="mb-0"
+                >
+                  <input
+                    class="btn btn-danger btn-sm my-0"
+                    type="submit"
+                    name="create-submit"
+                    value="Delete"
+                  />
+                </form></div>
+            </div>
+
+          {{/each}}
+        </div></div>
+    </div>
+    <form
+      class="container pt-5"
+      method="POST"
+      action="/api/requirement/{{tuition.id}}"
+    >
+      <fieldset class="fieldset">
+
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="text">Requirement Text</label>
+          <div class="col-md-12">
+            <input
+              type="text"
+              id="text"
+              name="text"
+              class="form-control"
+              required
+            />
+            <small class="text-secondary">
+              The requirement text will be shown to all tutors.
+            </small>
+          </div>
+        </div>
+
+      </fieldset>
+      <hr />
+      <div class="form-group">
+        <div class="text-center">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            name="create-submit"
+            value="Add Requirement"
+          />
+          <a
+            href="/dashboard"
+            class="btn btn-outline-danger px-3 ml-2"
+          >Cancel</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

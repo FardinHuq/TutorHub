@@ -1,0 +1,206 @@
+<main class="bgLightBlue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3">
+        <div class="container mt-4 mb-4">
+          <div class="w-100 mb-2 text-center">
+
+            <a href="/filter" class="btn btn-lg btn-primary shadow shadow-sm">
+              <i class="fas fa-search pr-2"></i>
+              Search Tuition
+            </a>
+          </div>
+          <hr class="w-75 mx-auto" />
+          <!--All Article-->
+          <h2 class="text-center font-weight-light py-3">
+            <i class="fas fa-newspaper pr-3"></i>Your Requests
+          </h2>
+          <div class="container">
+            <div class="row">
+
+              <!--All post single item-->
+              {{#each tuitions}}
+                <div class="col-md-6 mb-4">
+                  <div
+                    class="card text-left singleCardAllPost shadow shadow-sm"
+                  >
+                    <div class="">
+
+                      <div class="pr-4 pt-4 text-right">
+                        <a
+                          class="dropdown-toggle"
+                          href="!#"
+                          id="optionDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="fas fa-cog"></i>
+                        </a>
+                        <div
+                          class="dropdown-menu"
+                          aria-labelledby="optionDropdown"
+                        >
+
+                          <a
+                            class="dropdown-item text-danger"
+                            href="/api/request/{{id}}/delete"
+                          ><strong>Delete</strong></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body mt-0 pt-0 mx-4">
+                      <h6>
+
+                        <small class="text-secondary">
+                          Added
+                          {{createdAt}}
+                        </small>
+                      </h6>
+                      <h4 class="">
+                        <span class="text-center text-uppercase font-small">
+                          <strong>
+
+                            <span class="text-primary">{{area}}</span>
+
+                          </strong>
+                        </span>
+                      </h4>
+
+                      <h4 class="card-title">
+                        <strong>{{salary}} tk/month</strong>
+                      </h4>
+                      <h6 class="">
+                        Prefered
+                        <strong>{{gender}} tutor</strong>
+                      </h6>
+                      <h6 class="">
+
+                        <strong>{{medium}} </strong>
+                        medium
+                      </h6>
+                      <hr />
+                      <h6 class="">
+                        <strong>Message</strong><br />
+                        <small>{{text}}</small>
+                      </h6>
+
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-6">
+                          {{#if_eq avaliability "Available"}}
+                            <div class="badge badge-pill badge-primary py-2">
+                              {{avaliability}}
+                            </div>
+                          {{else}}
+                            <div class="badge badge-pill badge-danger py-2">
+                              {{avaliability}}
+                            </div>
+                          {{/if_eq}}
+
+                        </div>
+
+                        <div class="col-6 my-auto">
+                          <p
+                            class="text-right mb-0 text-uppercase font-small font-weight-bold fontLinkFix"
+                          >
+                            <a href="/tuition/{{id}}" class="textBlue">View
+                              Details
+                              <i
+                                class="fas fa-chevron-right"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {{else}}
+                <h4 class="text-center w-100">You have not requested for any
+                  tuition!</h4>
+              {{/each}}
+              <!--All post single item END-->
+
+            </div>
+          </div>
+          <!--All Article END-->
+        </div>
+      </div>
+      <!--Right Side Column-->
+      <div class="col-md-4">
+        <!--Profile details-->
+        <section
+          class="profileSectionRight card mb-4 text-center shadow shadow-sm mt-3"
+        >
+
+          <div class="card-body">
+            <h4 class="card-title"><strong>{{user.name}}</strong></h4>
+            {{#if user.edu_institution}}
+              <p class="h6">
+                <i class="fas fa-briefcase pr-2"></i>{{user.edu_degree}}
+                in
+                {{user.edu_subject}}
+                at
+                {{user.edu_institution}}
+                ({{user.edu_grad_year}})
+              </p>{{/if}}
+            {{#if user.address}}
+              <p class="h6">
+                <i class="fas fa-map-marker-alt pr-2"></i>
+                {{user.address}}
+              </p>
+            {{/if}}
+            {{#if user.phone}}
+              <p class="h6">
+                <i class="fas fa-phone pr-2"></i>
+                {{user.phone}}
+              </p>
+            {{/if}}
+            {{#if user.bio}}
+              <hr />
+              <b>Bio</b>
+              <p class="">
+                {{user.bio}}
+              </p>
+              <hr />
+            {{/if}}
+
+            <a href="/edit-profile" class="btn btn-primary px-3"><i
+                class="fas fa-user-cog mr-2"
+              ></i>Edit Profile</a>
+            <a
+              href="/edit-password"
+              class="btn btn-primary mt-md-2 mt-0 px-3"
+            ><i class="fas fa-wrench mr-2"></i>Change Password</a>
+          </div>
+        </section>
+        {{#if notifications}}
+
+          <section
+            class="profileSectionRight card mb-4 text-center shadow shadow-sm mt-3 p-3"
+          >
+
+            <p class="font-weight-lighter text-center bg-light py-2 mb-2 h3">
+              <strong>Notifications</strong>
+            </p><a
+              href="/api/notification/delete"
+              class="btn btn-danger btn-sm mb-3"
+            >Delete All</a>
+            <div class="list-group">
+              {{#each notifications}}
+                <div class="list-group-item">
+                  <span class="d-block">{{text}}</span>
+                  <span class="d-block text-primary">{{createdAt}}</span>
+                </div>
+              {{/each}}
+            </div>
+          </section>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</main>

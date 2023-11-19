@@ -1,0 +1,154 @@
+<div class="container-fluid bgLightBlue pb-md-4 pt-3 pb-0">
+  <div class="d-block">
+    <section class="container bg-white card card-body shadow shadow-sm">
+      <p class="font-weight-lighter text-center bg-light py-2 mb-4 h3">
+        <strong>Edit Profile</strong>
+      </p>
+
+      <form class="container" action="/api/editProfile" method="POST">
+        <fieldset class="fieldset">
+          <h3 class="font-weight-lighter textBlue">Personal Info</h3>
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label">Full Name</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                class="form-control"
+                name="name"
+                value="{{user.name}}"
+                name="name"
+              />
+              <small class="text-secondary">Your name will be visible publically
+                with your article.
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label
+              class="col-md-12 col-sm-3 col-xs-12 control-label"
+            >Institution</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                class="form-control"
+                name="edu_institution"
+                value="{{user.edu_institution}}"
+              />
+              <small class="text-secondary">Institution name
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label
+              class="col-md-12 col-sm-3 col-xs-12 control-label"
+            >Degree</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                class="form-control"
+                name="edu_degree"
+                value="{{user.edu_degree}}"
+              />
+              <small class="text-secondary">Degree name
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label
+              class="col-md-12 col-sm-3 col-xs-12 control-label"
+            >Subject</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                class="form-control"
+                name="edu_subject"
+                value="{{user.edu_subject}}"
+              />
+              <small class="text-secondary">Subject name
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label">Graduation
+              Year (Expected)</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="year"
+                required
+                class="form-control"
+                name="edu_grad_year"
+                value="{{user.edu_grad_year}}"
+              />
+              <small class="text-secondary">Graduation Year
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label
+              class="col-md-12 col-sm-3 col-xs-12 control-label"
+            >Bio</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <textarea
+                name="bio"
+                cols="30"
+                rows="5"
+                class="form-control"
+              >{{user.bio}}
+              </textarea>
+              <small class="text-secondary">Describe brifly about yourself.
+                Inclue your teaching method and previous teaching experience.</small>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset pt-4 pb-2">
+          <h3 class="font-weight-lighter textBlue">Contact Info</h3>
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label"><i
+                class="fas fa-phone pr-2"
+              ></i>Phone</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                name="phone"
+                class="form-control"
+                value="{{user.phone}}"
+              />
+              <small class="text-secondary">Your personal phone number.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label"><i
+                class="fas fa-map-marker-alt pr-2"
+              ></i>Address</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                name="address"
+                class="form-control"
+                value="{{user.address}}"
+              />
+              <small class="text-secondary">Your Address</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <hr />
+        <div class="form-group">
+          <div class="text-center">
+            <input
+              class="btn btn-primary"
+              type="submit"
+              value="Update Profile"
+              name="editProfile-submit"
+            />
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+{{#if user}}
+
+  {{#if areas}}
+    <form
+      class="container my-5 card card-body shadow"
+      method="GET"
+      action="/result"
+    ><p class="font-weight-lighter text-center pb-2 h2 border-bottom">
+        <strong>Filter Tuitions</strong>
+      </p>
+      <fieldset class="fieldset row pt-3">
+
+        <div class="form-group col-md-6">
+          <label class="col-md-12 control-label" for="area">Area</label>
+          <div class="col-md-12">
+            <select
+              class="form-control"
+              name="area"
+              id="area"
+              aria-label="Prefered area"
+            ><option value="all" selected>All</option>
+              {{#each areas}}
+                <option value={{this}}>{{this}}</option>
+              {{/each}}
+            </select>
+            <small class="text-secondary">
+              Select the area.
+            </small>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="col-md-12 control-label" for="medium">Medium</label>
+          <div class="col-md-12">
+            <select
+              class="form-control"
+              name="medium"
+              id="medium"
+              aria-label="Prefered medium"
+            >
+              <option value="all" selected>All</option>
+              <option value="Bangla">Bangla</option>
+              <option value="English">English</option>
+            </select>
+            <small class="text-secondary">
+              Select the medium.
+            </small>
+          </div>
+        </div>
+
+      </fieldset>
+      <hr />
+      <div class="form-group">
+        <div class="text-center">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            name="create-submit"
+            value="Filter Now"
+          />
+
+        </div>
+      </div>
+    </form>
+  {{/if}}
+{{/if}}

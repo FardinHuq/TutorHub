@@ -1,0 +1,129 @@
+<main class="bgLightBlue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+
+        <h2 class="text-center font-weight-light py-3 pt-5">
+          <i class="fas fa-newspaper pr-3"></i>Pending Tutors
+        </h2>
+
+        {{#each tutors}}
+          <div class="col-md-6 mb-4">
+            <div class="card text-left singleCardAllPost shadow shadow-sm pt-4">
+              <div class="card-body mt-0 pt-0 mx-2">
+                <h6>
+
+                  <small class="text-secondary">
+                    Joined
+                    {{createdAt}}
+                  </small>
+                </h6>
+                <h4 class="">
+                  <a
+                    href="/tutor/{{id}}"
+                    class="text-center text-uppercase font-small"
+                  >
+                    <strong>
+                      <span class="text-primary">{{name}}</span>
+                    </strong>
+                  </a>
+                </h4>
+                <h6 class="">
+                  Username:
+                  <strong>{{username}} </strong>
+                </h6>
+                <h6 class="">
+                  Phone:
+                  <strong>{{phone}} </strong>
+                </h6>
+                <h6 class="">
+                  <i class="fas fa-briefcase pr-2"></i>{{edu_degree}}
+                  in
+                  {{edu_subject}}
+                  at
+                  {{edu_institution}}
+                  ({{edu_grad_year}})
+                </h6>
+                <hr />
+                <h6 class="">
+                  Bio:
+                  <br />
+                  <small>{{bio}} </small>
+                </h6>
+
+                <hr />
+
+                <div class="row">
+
+                  <div class="col-6 my-auto">
+                    <p
+                      class="mb-0 text-uppercase font-small font-weight-bold fontLinkFix"
+                    >
+                      <a
+                        href="/api/tutor/{{id}}/approve"
+                        class="btn btn-success btn-sm"
+                      >Approve
+                      </a>
+                    </p>
+                  </div>
+                  <div class="col-6 my-auto">
+                    <p
+                      class="text-right mb-0 text-uppercase font-small font-weight-bold fontLinkFix"
+                    >
+                      <a
+                        href="/tutor/{{id}}"
+                        class="btn btn-primary btn-sm"
+                      >View Profile
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{else}}
+          <h4 class="text-center w-100">No tutor pending!</h4>
+        {{/each}}
+
+      </div>
+
+      <!--Right Side Column-->
+      <div class="col-md-4">
+        <!--Profile details-->
+        <section
+          class="profileSectionRight card mb-4 text-center shadow shadow-sm mt-3"
+        >
+
+          <div class="card-body">
+            <h4 class="card-title"><strong>Name</strong></h4>
+            {{#if user.edu_institution}}
+              <p class="h6">
+                <i class="fas fa-briefcase pr-2"></i>{{user.edu_institution}}
+              </p>{{/if}}
+            {{#if user.address}}
+              <p class="h6">
+                <i class="fas fa-map-marker-alt pr-2"></i>
+                {{user.address}}
+              </p>
+            {{/if}}
+            {{#if user.phone}}
+              <p class="h6">
+                <i class="fas fa-phone pr-2"></i>
+                {{user.phone}}
+              </p>
+            {{/if}}
+
+            <a href="/edit-profile" class="btn btn-primary px-3"><i
+                class="fas fa-user-cog mr-2"
+              ></i>Edit Profile</a>
+            <a
+              href="/edit-password"
+              class="btn btn-primary mt-md-2 mt-0 px-3"
+            ><i class="fas fa-wrench mr-2"></i>Change Password</a>
+          </div>
+        </section>
+
+      </div>
+    </div></div>
+
+</main>

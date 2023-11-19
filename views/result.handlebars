@@ -1,0 +1,79 @@
+<h2 class="text-center font-weight-light py-3 pt-5">
+  <i class="fas fa-newspaper pr-3"></i>Filtered Tuitions
+</h2>
+<div class="text-center pb-4"><a
+    href="/filter"
+    class="btn btn-lg btn-primary shadow shadow-sm"
+  >
+    <i class="fas fa-arrow-left pr-2"></i>
+    Go Back
+  </a></div>
+<hr />
+<div class="container">
+  <div class="row">
+
+    <!--All post single item-->
+    {{#each tuitions}}
+      <div class="col-md-4 mb-4">
+        <div class="card text-left singleCardAllPost shadow shadow-sm">
+
+          <div class="card-body mt-0 pt-5 mx-4">
+            <h6>
+
+              <span class="text-secondary font-small">
+                Added about
+                {{createdAt}}
+              </span>
+            </h6>
+            <h4 class="">
+              <span class="text-center text-uppercase font-small">
+                <strong>
+
+                  <span class="text-primary">{{area}}</span>
+
+                </strong>
+              </span>
+            </h4>
+
+            <h4 class="card-title">
+              <strong>{{salary}} tk/month</strong>
+            </h4><h6 class="">
+              Subject:
+              <strong>{{subject}}</strong>
+            </h6>
+            <h6 class="">
+              Class:
+              <strong>{{class}}</strong>
+            </h6>
+            <h6 class="">
+              Prefered
+              <strong>{{gender}} tutor</strong>
+            </h6>
+            <h6 class="">
+              Medium
+              <strong>{{medium}}</strong>
+            </h6>
+            <hr />
+
+            <div class="row">
+
+              <div class="col-12 my-auto">
+                <p
+                  class="text-right mb-0 text-uppercase font-small font-weight-bold fontLinkFix"
+                >
+                  <a href="/tuition/{{id}}" class="textBlue">View Details
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <h4 class="text-center w-100">You have not added any tuition!</h4>
+    {{/each}}
+    <!--All post single item END-->
+
+  </div>
+</div>

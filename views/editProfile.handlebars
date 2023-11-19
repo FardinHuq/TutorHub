@@ -1,0 +1,91 @@
+<div class="container-fluid bgLightBlue pb-md-4 pt-3 pb-0">
+  <div class="d-block">
+    <section class="container bg-white card card-body shadow shadow-sm">
+      <p class="font-weight-lighter text-center bg-light py-2 mb-4 h3">
+        <strong>Edit Profile</strong>
+      </p>
+
+      <form class="container" action="/api/editProfile" method="POST">
+        <fieldset class="fieldset">
+          <h3 class="font-weight-lighter textBlue">Personal Info</h3>
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label">Full Name</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                class="form-control"
+                name="name"
+                value="{{user.name}}"
+                name="name"
+              />
+
+            </div>
+          </div>
+
+        </fieldset>
+        <fieldset class="fieldset pt-4 pb-2">
+          <h3 class="font-weight-lighter textBlue">Contact Info</h3>
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label"><i
+                class="fas fa-phone pr-2"
+              ></i>Phone</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                name="phone"
+                class="form-control"
+                value="{{user.phone}}"
+              />
+              <small class="text-secondary">Your personal phone number.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label"><i
+                class="fas fa-file-signature pr-2"
+              ></i>Username</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                required
+                name="username"
+                class="form-control"
+                value="{{user.username}}"
+                disabled
+              />
+              <small class="text-secondary">Your username</small>
+            </div>
+          </div>
+          <input type="hidden" name="username" value={{user.username}} />
+          <div class="form-group">
+            <label class="col-md-12 col-sm-3 col-xs-12 control-label"><i
+                class="fas fa-map-marker-alt pr-2"
+              ></i>Address</label>
+            <div class="col-md-12 col-sm-9 col-xs-12">
+              <input
+                type="text"
+                name="address"
+                class="form-control"
+                value="{{user.address}}"
+              />
+              <small class="text-secondary">Your Address</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <hr />
+        <div class="form-group">
+          <div class="text-center">
+            <input
+              class="btn btn-primary"
+              type="submit"
+              value="Update Profile"
+              name="editProfile-submit"
+            />
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
